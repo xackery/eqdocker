@@ -1,0 +1,54 @@
+version: '3'
+services:
+  mariadb:
+    image: "bitnami/mariadb:latest"
+    volumes:
+      - ./db:/bitnami/mariadb # raw data out
+      - ./backup:/backup #used for ./backup-db.sh and ./restore-db.sh
+      - ./eqemu/bin/db:/eqemu/db #used for sourcing db initially
+      - ./html:/html # support for peqphpeditor
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpass
+      MARIADB_DATABASE: eqemu
+      MARIADB_USER: eqemu
+      MARIADB_PASSWORD: eqemu
+    #  ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+  eqemu:
+    stdin_open: true
+    build: ./docker/eqemu/.
+    restart: always
+    volumes:
+      - "./eqemu/bin:/eqemu"
+    links:
+      - mariadb
+    depends_on:
+      - mariadb
+    ports:
+      - "5998:5998" #loginserver
+      - "5999:5999" #loginserver
+      - "7000-7400:7000-7400/udp" #zone servers
+      - "9000:9000" #telnet
+      - "9001:9001" #tcp/world
+      - "9080:9080"
+      - "9081:9081" #web interface
+    expose:
+      - "7000-7100/udp"
+      - "9000/udp"
+      - "9080/udp"
+  web:
+    stdin_open: true
+    build: ./docker/web/.
+    restart: always
+    volumes:
+      - "./html:/var/www/html/"
+    links:
+      - mariadb
+    depends_on:
+      - mariadb
+    ports:
+      - "80:80"

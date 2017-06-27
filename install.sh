@@ -68,7 +68,7 @@ else
 	echo "export GITPLUGINS=${GITPLUGINS}" >> env.txt
 	echo "export GITMAPS=${GITMAPS}" >> env.txt
 	echo "export GITDB=${GITDB}" >> env.txt
-	if [ ! -z "${GITEOC}" ]; then
+	if [ ! -z "${USEPRECOMPILED}" ]; then
 		echo "export USEPRECOMPILED=${USEPRECOMPILED}" >> env.txt
 		echo "export GITPRECOMPILED=${GITPRECOMPILED}" >> env.txt
 	fi
@@ -304,5 +304,3 @@ echo "Shutting down mariadb.."
 docker-compose down
 
 echo "Build completed. Run up.sh to start the environment."
-
-

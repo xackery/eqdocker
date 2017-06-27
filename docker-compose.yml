@@ -37,6 +37,8 @@ services:
       - "9080:9080"
       - "9081:9081" #web interface
     expose:
+      - "5998"
+      - "5999"
       - "7000-7100/udp"
       - "9000/udp"
       - "9080/udp"
@@ -52,3 +54,5 @@ services:
       - mariadb
     ports:
       - "80:80"
+    expose:
+      - "80"

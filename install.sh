@@ -20,7 +20,7 @@ else
 		GITQUESTS=https://github.com/xackery/eqquests
 	fi
 
-	read -e -p "Enter git repo to pull quests from (default: https://github.com/xackery/eqplugins):" GITPLUGINS
+	read -e -p "Enter git repo to pull plugins from (default: https://github.com/xackery/eqplugins):" GITPLUGINS
 	if [ -z "${GITPLUGINS}" ]; then
 		GITPLUGINS=https://github.com/xackery/eqplugins
 	fi

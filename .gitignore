@@ -1,5 +1,5 @@
 # Ignore any built binaries
-bin
+/eqemu/bin/
 
 #config file
 env.txt

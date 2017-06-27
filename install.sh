@@ -56,9 +56,9 @@ else
 	read -p "Instead of compiling source, we can use binaries. Want to? [Y/n] (default: n): " REPLY
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		USEPRECOMPILED=1
-		read -e -p "Enter git repo to download binaries from (default: https://github.com/xackery/dockereq):" GITPEQ
+		read -e -p "Enter git repo to download binaries from (default: https://github.com/xackery/eqdocker):" GITPEQ
 		if [ -z "${GITPRECOMPILED}" ]; then
-			GITPRECOMPILED=https://github.com/xackery/dockereq
+			GITPRECOMPILED=https://github.com/xackery/eqdocker
 		fi
 	fi
 

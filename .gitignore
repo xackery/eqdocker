@@ -5,10 +5,10 @@ bin
 env.txt
 
 #core folders
-db/
-eqemu/
-html/
-tmp/
+/db/
+/eqemu/
+/html/
+/tmp/
 
 
 # Compiled Object files

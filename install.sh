@@ -304,5 +304,3 @@ echo "Shutting down mariadb.."
 docker-compose down
 
 echo "Build completed. Run up.sh to start the environment."
-
-

@@ -18,4 +18,4 @@ echo "Removing past backup..."
 rm -rf backup/db/*
 
 echo "Backing up database to backup/..."
-docker-compose exec mariadb /opt/bitnami/mariadb/bin/mysqldump -u root --tab=/backup/db/ eqemu
+docker-compose exec mariadb /opt/bitnami/mariadb/bin/mysqldump -u root -prootpass --tab=/backup/db/ eqemu

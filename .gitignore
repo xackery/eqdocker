@@ -5,6 +5,7 @@
 env.txt
 
 #core folders
+/backup/
 /db/
 /eqemu/
 /html/

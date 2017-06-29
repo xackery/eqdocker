@@ -15,7 +15,7 @@ for f in *.sql
 do
 	cd ${ROOTDIR}
 	echo "$f..."
-	docker-compose exec mariadb bash -c "/opt/bitnami/mariadb/bin/mysql -u root eqemu < ${DOCKERDBDIR}$f"
+	docker-compose exec mariadb bash -c "/opt/bitnami/mariadb/bin/mysql -u root -prootpass eqemu < ${DOCKERDBDIR}$f"
 done
 
 echo "Insert data..."
@@ -24,5 +24,5 @@ for f in *.txt
 do
 	cd ${ROOTDIR}
 	echo "$f..."
-	docker-compose exec mariadb bash -c "/opt/bitnami/mariadb/bin/mysqlimport -u root eqemu ${DOCKERDBDIR}$f"
+	docker-compose exec mariadb bash -c "/opt/bitnami/mariadb/bin/mysqlimport -u root -prootpass eqemu ${DOCKERDBDIR}$f"
 done

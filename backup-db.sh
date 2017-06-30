@@ -11,11 +11,14 @@ if [ ! -d db ]; then
 fi
 cd ../
 
-#echo "Ensuring mariadb is up..."
-#docker-compose up mariadb
-
 echo "Removing past backup..."
 rm -rf backup/db/*
 
-echo "Backing up database to backup/..."
+echo "Backing up database to backup/db/..."
 docker-compose exec mariadb /opt/bitnami/mariadb/bin/mysqldump -u root -prootpass --tab=/backup/db/ eqemu
+
+echo "Removing date garbage..."
+for file in backup/db/*.sql; do
+		cat ${file} | sed '/-- Dump/d' > backup/tmp.sql
+		mv backup/tmp.sql ${file}
+done

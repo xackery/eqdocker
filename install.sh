@@ -46,7 +46,7 @@ else
 		read -p "Would you like to install PEQ PHP Editor in the web directory? (optional) [Y/n] (default: n): " REPLY
 		if [[ $REPLY =~ ^[Yy]$ ]]; then
 			USEPEQ=1
-			read -e -p "Enter git repo to pull EQEmu EOC from (default: https://github.com/xackery/peqphpeditor):" GITPEQ
+			read -e -p "Enter git repo to pull PEQ PHP Editor from (default: https://github.com/xackery/peqphpeditor):" GITPEQ
 			if [ -z "${GITDB}" ]; then
 				GITPEQ=https://github.com/xackery/peqphpeditor
 			fi

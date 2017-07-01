@@ -220,7 +220,7 @@ files=(
 	'login_opcodes.conf'
 	'login_opcodes_sod.conf'
 	)
-for file in "${files}"; do
+for file in "${files[@]}"; do
 	if [ ! -f eqemu/bin/${file} ]; then
 	   echo "Copying to eqemu/bin/${file}..."
 	   cp docker/eqemu/${file} eqemu/bin/
